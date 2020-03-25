@@ -27,11 +27,20 @@ let breakingDistanceChart = new Chart(chart, {
     data: {
         labels: velocitys,
         datasets:[{
-            label: 'Droga hamowania samochodu w metrach',
+            label: 'Droga hamowania samochodu na suchej nawierzchni',
             data: CalculateBreakingDistanceOnDry(velocitys),
-            backgroundColor: '#f7a400',
             borderWidth: 2,
             borderColor: '#1a1b4b',
+            backgroundColor: '#1a1b4b',
+            pointHoverRadius: 8,
+            hoverBorderWidth: 3,
+            fill: 'none'
+        },{
+            label: 'Droga hamowania samochodu na mokrej nawierzchni',
+            data: CalculateBreakingDistanceOnWet(velocitys),
+            borderWidth: 2,
+            borderColor: '#f7a400',
+            backgroundColor: '#f7a400',
             pointHoverRadius: 8,
             hoverBorderWidth: 3,
             fill: 'none'
@@ -47,7 +56,13 @@ let breakingDistanceChart = new Chart(chart, {
             labels: {
                 fontSize: 16
             }
-        }
+        },
+        layout: {
+            padding: {
+                left: 20,
+                right: 20
+            }
+        },
     }
 });
 
